@@ -23,7 +23,20 @@
   <body>
     <!-- Header -->
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="logo Fisheye" />
+      <div class="aside">
+        <div class="feeder"></div>
+        <a
+          href="index.html"
+          class="photographers_focus"
+          title="Retour à l'accueil"
+        >
+          <img
+            src="assets/images/logo.png"
+            class="logo"
+            alt="logo de Fisheye"
+          />
+        </a>
+      </div>
     </header>
 
     <!-- Main -->
@@ -104,10 +117,12 @@
         </form>
       </div>
     </div>
+
     <script src="scripts/utils/APIfetch.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/templates/photographer.js"></script>
     <script src="scripts/templates/media.js"></script>
+    <script src="/scripts/models/lightbox.js"></script>
   </body>
 </html>

@@ -19,6 +19,28 @@ document.addEventListener("keydown", function (e) {
     return;
   }
 
+  // Si flèche en haut ou en bas, on passe au suivant
+  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+    // récupérer l'element focus
+    let index = focusableItems.findIndex(
+      (elt) => elt == modal.querySelector(":focus")
+    );
+    let maxIndex = focusableItems.length - 1;
+
+    if (e.key === "ArrowDown") {
+      if (index == maxIndex) {
+        index = 0;
+      } else index++;
+    } else {
+      // 'ArrowUp'
+      if (index == 0) {
+        index = maxIndex;
+      } else index--;
+    }
+
+    focusableItems[index].focus();
+  }
+
   if (!isTabPressed) {
     // Si pas Tab et pas Escape, on sort
     return;
