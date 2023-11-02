@@ -1,6 +1,6 @@
-// Ouverture et fermeture de la modale
+// Ouverture de la modale
 
-// Définir tous les éléments de la modale
+// Définir tous les éléments de la modale focusables
 const focusableElements =
   'button, img, input, select, textarea, [tabindex]:not([tabindex="-1"])';
 const modal = document.querySelector("#contact_modal"); // select the modal by it's id
@@ -19,40 +19,21 @@ document.addEventListener("keydown", function (e) {
     return;
   }
 
-  // Si flèche en haut ou en bas, on passe au suivant
-  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-    // récupérer l'element focus
-    let index = focusableItems.findIndex(
-      (elt) => elt == modal.querySelector(":focus")
-    );
-    let maxIndex = focusableItems.length - 1;
-
-    if (e.key === "ArrowDown") {
-      if (index == maxIndex) {
-        index = 0;
-      } else index++;
-    } else {
-      // 'ArrowUp'
-      if (index == 0) {
-        index = maxIndex;
-      } else index--;
-    }
-
-    focusableItems[index].focus();
-  }
-
   if (!isTabPressed) {
     // Si pas Tab et pas Escape, on sort
     return;
   }
 
   if (e.shiftKey) {
+    // Si shift key pressé pour la combinaison shift + tab
     if (document.activeElement === firstFocusableElement) {
-      lastFocusableElement.focus();
+      lastFocusableElement.focus(); // on met le focus sur le dernier element focusable
       e.preventDefault();
     }
   } else {
+    // Sinon
     if (document.activeElement === lastFocusableElement) {
+      // Si on arrive au dernier element focusable, alors on remet le focus sur le premier
       firstFocusableElement.focus();
       e.preventDefault();
     }
@@ -82,6 +63,8 @@ function closeModal() {
   button.focus();
 }
 
+// Soumission du formulaire sur click bouton Envoyer et Affichage des données dans la console avant fermeture modale
+
 submitButton.addEventListener("click", (event) => {
   event.preventDefault(event);
 
@@ -89,8 +72,6 @@ submitButton.addEventListener("click", (event) => {
   const nom = document.getElementById("last");
   const email = document.getElementById("email");
   const message = document.getElementById("message");
-
-  console.log(prenom.validity.valid);
 
   if (
     prenom.validity.valid &&

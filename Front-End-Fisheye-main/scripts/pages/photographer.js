@@ -58,6 +58,12 @@ async function init() {
 
   displayPhotographHeader(selectedPhotograph);
   displayPhotographGallery(media, selectedPhotograph);
+
+  // Management de la lightbox
+  Lightbox.init();
+
+  // Management des likes
+  Likes.init();
 }
 
 init();
