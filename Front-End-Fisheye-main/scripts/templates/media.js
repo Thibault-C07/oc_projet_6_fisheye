@@ -10,7 +10,7 @@ class MediaPhoto {
   }
 
   get picture() {
-    return `../assets/photographers/${this._picture}`;
+    return `assets/photographers/${this._picture}`;
   }
 
   /**
@@ -20,34 +20,23 @@ class MediaPhoto {
     if (name.split("-") !== name) {
       name = name.split("-").join(" ");
     }
-    this._directory = `assets/photographers/${name}`;
-    console.log(this._directory);
+    this._directory = `../assets/photographers/${name}`;
   }
 
   get userGalleryCard() {
     return `
-      <a href="#" class="photographer_focus" aria-label="présentation des photos">
-        <figure>
-          <img src="${this._directory}/${this._picture}" alt="le photographe"></img>
-          <figcaption>
-            <p>${this._title}</p>
-            <div>
-              <p>${this._likes}</p>
-              <i class="fa fa-heart heart-"btn" aria-hidden="true"></i>
-            </div>
-          </figcaption>
-        </figure>
-      </a>
-       `;
-  }
-
-  get userPanelPrice() {
-    return `
-      <div>
-        <p>${this._likes}</p>
-        <i class="fa fa-heart heart-"btn" aria-hidden="true"></i>
-      </div>
-      <p>${this._price} €/jour</p>
+      <figure class="mediacard">
+        <a href="#" tabindex="-1">
+          <img src="${this._directory}/${this._picture}" class="media_focus" tabindex="0" alt="La photo ${this._title}"/>
+        </a>
+        <figcaption>
+          <p>${this._title}</p>
+          <div>
+            <p class="likesNumber">${this._likes}</p>
+            <i class="fa fa-heart heart-btn" aria-hidden="true"></i>
+          </div>
+        </figcaption>
+      </figure>
     `;
   }
 }
@@ -62,6 +51,9 @@ class MediaMovie {
     this._directory = "";
   }
 
+  /**
+   * @param {any} name
+   */
   set mediaDirectory(name) {
     if (name.split("-") !== name) {
       name = name.split("-").join(" ");

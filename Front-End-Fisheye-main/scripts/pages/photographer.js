@@ -5,12 +5,16 @@ function selectPhotograph(photographList, Id) {
 
 // Affichage header du photographe
 function displayPhotographHeader(photograph) {
+  // création d'une instance de Photographer et appel de userData
   const photographHeader = document.querySelector(".photograph-header");
-  photographHeader.innerHTML = "";
-
   const photographModel = new Photographer(photograph);
-  photographHeader.innerHTML += photographModel.userData;
+  photographHeader.innerHTML = photographModel.userData;
 
+  // Appel de userName pour initialiser le nom du photographe dans la modale
+  const photographName = document.querySelector(".modal_name");
+  photographName.innerHTML += photographModel.userName;
+
+  // mise à jour du title avec le nom du photographe
   document.title += photographModel.userTitle;
 }
 
@@ -34,6 +38,14 @@ function displayPhotographGallery(media, photograph) {
       photographGallery.innerHTML += photographModel.userGalleryCard;
     }
   });
+
+  // Maintenant que la gallery est affichée, on met à jour la panel price avec les likes
+  const photographPricePanel = document.querySelector(
+    ".photograph-price-panel"
+  );
+  const photographModel = new Photographer(photograph);
+
+  photographPricePanel.innerHTML = photographModel.userPanelPrice;
 }
 
 async function init() {
