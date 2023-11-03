@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Fisheye, photographes freelance" />
-    <meta name="keywords" content="photographers, photographies, video" />
+    <meta name="keywords" content="photographers, photographies, videos" />
 
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
@@ -18,25 +18,23 @@
   <body>
     <!-- Header -->
     <header>
-      <div class="aside">
-        <div class="feeder"></div>
-        <a href="#" class="photographers_focus" title="Page d'accueil">
-          <img
-            src="assets/images/logo.png"
-            class="logo"
-            alt="logo de Fisheye"
-          />
-        </a>
-      </div>
+      <a href="index.html" class="photographers_focus">
+        <img
+          src="assets/images/logo.png"
+          class="logo"
+          alt="Fisheye Home page"
+        />
+      </a>
       <h1>Nos photographes</h1>
     </header>
+
     <!-- Section photographer pour afficher tous les photographes -->
     <main id="main">
       <section class="photographer_section"></section>
     </main>
 
-    <script src="scripts/templates/photographer.js"></script>
-    <script src="scripts/utils/APIfetch.js"></script>
-    <script src="scripts/pages/index.js"></script>
+    <script src="scripts/utils/APIfetch.js" type="module"></script>
+    <script src="scripts/pages/index.js" type="module"></script>
+    <script src="scripts/templates/photographer.js" type="module"></script>
   </body>
 </html>

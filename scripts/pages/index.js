@@ -1,3 +1,8 @@
+// Import
+import { Photographer } from "../templates/photographer.js";
+import { getPhotographers } from "../utils/APIfetch.js";
+
+/* Affichage des photographes sur page d'accueil */
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
   photographersSection.innerHTML = "";
