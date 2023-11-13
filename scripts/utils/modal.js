@@ -73,7 +73,7 @@ function closeModal() {
   button.focus();
 }
 
-/* Activation du listener sur keydown pour naviguation dans le formulaire */
+/* Naviguation avec clavier */
 modal.addEventListener("keydown", (e) => {
   let isTabPressed = e.key === "Tab" || e.keyCode === 9;
   let activeElementIndex = -1;
@@ -131,7 +131,7 @@ modal.addEventListener("keydown", (e) => {
   }
 });
 
-/* Soumission du formulaire sur click bouton envoyer  et affichage des données dans la console avant fermeture modale */
+/* Soumission du formulaire sur click bouton envoyer et affichage des données dans la console avant fermeture modale */
 submitButton.addEventListener("click", (event) => {
   event.preventDefault(event);
 
