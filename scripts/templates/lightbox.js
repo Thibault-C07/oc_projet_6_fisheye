@@ -138,7 +138,7 @@ export class Lightbox {
     }
   }
 
-  /* Ferme la lightbox avec effet */
+  /* Fermeture de la lightbox  */
   close(e) {
     e.preventDefault();
 

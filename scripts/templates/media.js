@@ -35,6 +35,7 @@ class MediaPhoto {
   }
 }
 
+/*  Classe MediaMovie pour afficher la gallery card avec video */
 class MediaMovie {
   constructor(data) {
     this._title = data.title;
@@ -68,6 +69,7 @@ class MediaMovie {
   }
 }
 
+/* Classe Media pour appeler une classe photo ou video */
 export class Media {
   constructor(data) {
     // Photo

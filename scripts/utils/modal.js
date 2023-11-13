@@ -32,7 +32,7 @@ export function displayModal() {
   modal.setAttribute("aria-hidden", false);
   main.setAttribute("aria-hidden", true);
 
-  // Passage du focus au exuième élément de la modale: premier élément à renseigner
+  // Passage du focus au deuxième élément de la modale: premier élément à renseigner
   secondFocusableElement.focus();
 
   // On active le listener sur la fermeture du formulaire de contact

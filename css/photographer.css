@@ -1,7 +1,7 @@
 .photograph-header {
 	background-color: #fafafa;
 	height: 313px;
-	margin: 0 100px;
+	margin: 0 25px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
