@@ -6,7 +6,7 @@ export class Likes {
     let totalLikes = document.getElementById("totalLikes");
 
     /* Fonction de Mise à jour des likes */
-    function updateLikes(link, totalLikes) {
+    const updateLikes = (link, totalLikes) => {
       if (link.classList[0] === "likeIcon") {
         link.classList.remove("likeIcon");
         --link.parentElement.childNodes[1].innerHTML;
@@ -18,7 +18,7 @@ export class Likes {
         ++totalLikes.innerHTML;
         link.setAttribute("aria-label", "J'aime");
       }
-    }
+    };
 
     // Listener sur clic du coeur pour ajouter un j'aime ou un j'aime pas
     likesIcon.forEach((link) =>

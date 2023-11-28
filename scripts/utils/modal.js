@@ -55,7 +55,7 @@ export function displayModal() {
 }
 
 /* Fermeture de la modale pour quitter le formulaire */
-function closeModal() {
+const closeModal = () => {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
 
@@ -71,7 +71,7 @@ function closeModal() {
 
   const button = document.getElementById("contact_button");
   button.focus();
-}
+};
 
 /* Naviguation avec clavier */
 modal.addEventListener("keydown", (e) => {

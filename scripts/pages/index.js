@@ -3,7 +3,7 @@ import { Photographer } from "../templates/photographer.js";
 import { getPhotographers } from "../utils/APIfetch.js";
 
 /* Affichage des photographes sur page d'accueil */
-async function displayData(photographers) {
+const displayData = async (photographers) => {
   const photographersSection = document.querySelector(".photographer_section");
   photographersSection.innerHTML = "";
 
@@ -11,12 +11,12 @@ async function displayData(photographers) {
     const photographerModel = new Photographer(photographer);
     photographersSection.innerHTML += photographerModel.userCardDOM;
   });
-}
+};
 
 /* Initialisation de la page d'accueil */
-async function init() {
+const homepage = async () => {
   const { photographers } = await getPhotographers();
   displayData(photographers);
-}
+};
 
-init();
+homepage();

@@ -9,12 +9,12 @@ import { displayModal } from "../utils/modal.js";
 import { sortbyOption, readSelectedOption } from "../utils/sort.js";
 
 /* Sélection du photographe par l'id */
-function selectPhotograph(photographList, Id) {
+const selectPhotograph = (photographList, Id) => {
   return photographList.find((photograph) => photograph.id === Id);
-}
+};
 
 /* Header du photographe avec photo */
-function displayPhotographHeader(photograph) {
+const displayPhotographHeader = (photograph) => {
   // Création d'une instance et appel de userData
   const photographHeader = document.querySelector(".photograph-header");
   const photographModel = new Photographer(photograph);
@@ -26,14 +26,14 @@ function displayPhotographHeader(photograph) {
 
   // Mise à jour du title avec le nom du photographe
   document.title += photographModel.userTitle;
-}
+};
 
 /* Affichage de la galerie du photographe grace à l'id */
-function displayPhotographGallery(media, photograph) {
+const displayPhotographGallery = (media, photograph) => {
   const photographGallery = document.querySelector(".photograph-gallery");
 
   // fonction mise à jour de la galerie présentée en fonction de l'option sélectionnée
-  function updateGallery(media) {
+  const updateGallery = (media) => {
     photographGallery.innerHTML = "";
     media = sortbyOption(media, readSelectedOption());
 
@@ -49,22 +49,23 @@ function displayPhotographGallery(media, photograph) {
         photographGallery.innerHTML += mediaModel.userGalleryCard;
       }
     });
-  }
+  };
 
   // fonction réinitialisant le total des likes sur le panneau de bas de page
-  function updateTotalLikes() {
+  const updateTotalLikes = () => {
     const photographPricePanel = document.querySelector(
       ".photograph-price-panel"
     );
     const photographModel = new Photographer(photograph);
 
     photographPricePanel.innerHTML = photographModel.userPanelPrice;
-  }
+  };
 
   // Récupération du nom du photograhe pour connaître le répertoire des medias
   let photographName = photograph.name;
   photographName = photographName.split(" ")[0];
 
+  /* Succession de mise à jour et d'initialisation pour l'affichage correcte de la page */
   updateGallery(media);
 
   // Mise à jour du panel price avec les likes
@@ -93,10 +94,10 @@ function displayPhotographGallery(media, photograph) {
     Lightbox.init();
     Likes.init();
   });
-}
+};
 
 /* Initialisation de la page photographe */
-async function init() {
+const initPhotographers = async () => {
   // Récupération de l'id et de la liste des photographes via l'API
   const identifier = parseInt(
     location.search.substring(1).split("&")[0].split("=")[1]
@@ -108,6 +109,6 @@ async function init() {
 
   displayPhotographHeader(selectedPhotograph);
   displayPhotographGallery(media, selectedPhotograph);
-}
+};
 
-init();
+initPhotographers();

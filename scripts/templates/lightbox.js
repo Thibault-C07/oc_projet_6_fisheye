@@ -47,11 +47,23 @@ export class Lightbox {
     dom.classList.add("lightbox");
     dom.setAttribute("tabindex", "0");
 
-    dom.innerHTML = `
+    /* dom.innerHTML = `
         <button role="button" class="lightbox_close" aria-label="fermer le carroussel" ><i class="fa-solid fa-close fa-4x"></i></button>
         <button role="link" class="lightbox_next" aria-label="image suivante" ><i class="fa-solid fa-angle-right fa-4x"></i></button>
         <button role="link" class="lightbox_previous" aria-label="image précédente" ><i class="fa-solid fa-angle-left fa-4x"></i></button>
-        <div class="lightbox_container"></div>`;
+        <div class="lightbox_container"></div>`; */
+
+    dom.innerHTML = `
+        <div class="lightbox_with_nav">
+        <div class="left_nav">
+        <button role="link" class="lightbox_previous" aria-label="image précédente" ><i class="fa-solid fa-angle-left fa-4x"></i></button>
+        </div>
+        <div class="lightbox_container"></div>
+        <div class="right_nav">
+          <button role="button" class="lightbox_close" aria-label="fermer le carroussel" ><i class="fa-solid fa-close fa-4x"></i></button>
+          <button role="link" class="lightbox_next" aria-label="image suivante" ><i class="fa-solid fa-angle-right fa-4x"></i></button>
+        </div>
+        </div>`;
 
     dom
       .querySelector(".lightbox_close")
@@ -66,7 +78,7 @@ export class Lightbox {
     return dom;
   }
 
-  /* Charger une nouvelle image ou video dans la lightbox */
+  /* Chargement d'une nouvelle image ou video dans la lightbox */
   loadImage(url) {
     this.url = url;
     const container = this.element.querySelector(".lightbox_container");
@@ -151,6 +163,8 @@ export class Lightbox {
     });
     this.link.focus();
   }
+
+  /* Navigation au clavier dans la galerie */
 
   /* Passer à l'image suivante de la galerie */
   next(e) {
